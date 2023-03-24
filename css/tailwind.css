@@ -3,3 +3,22 @@
 @tailwind utilities;
 
 /*Custom Styles Here*/
+ul {
+  @apply list-disc;
+  @apply pl-4; /* optional: add left padding */
+}
+
+li {
+  @apply list-item;
+  @apply text-base my-2;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+blockquote {
+  @apply border-gray-400;
+  @apply border-2;
+  @apply rounded-lg;
+}
