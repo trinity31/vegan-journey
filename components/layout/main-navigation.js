@@ -27,6 +27,12 @@ function MainNavigation() {
       href: "/create",
     },
   ];
+  const devMenu = [
+    {
+      label: "Manage",
+      href: "/manage",
+    },
+  ];
 
   return (
     <Container>
@@ -77,6 +83,18 @@ function MainNavigation() {
                       </a>
                     </Link>
                   ))}
+                  {process.env.NODE_ENV === "development" &&
+                    devMenu.map((item, index) => (
+                      <Link legacyBehavior href={item.href} key={index}>
+                        <a
+                          className="px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500"
+                          target={item.external ? "_blank" : ""}
+                          rel={item.external ? "noopener" : ""}
+                        >
+                          <span> {item.label}</span>
+                        </a>
+                      </Link>
+                    ))}
                 </div>
               </div>
               <Disclosure.Panel>

@@ -1,7 +1,6 @@
 import { Client } from "@notionhq/client";
-import { CATEGORY_VEGAN_JOURNEY } from "./constants";
 
-export async function getPostData(page, content, locale, category) {
+export async function getPostData(page, content, locale) {
   let body = "";
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
@@ -37,13 +36,15 @@ export async function getPostData(page, content, locale, category) {
             : "";
         // console.log(result.bookmark);
         body += `[${caption}](${result.bookmark.url})`;
+        //   console.log(`[${caption}](${result.bookmark.url})`);
       } else if (result.type == "image") {
-        // console.log("image");
+        console.log("image:");
+        console.log(result.image);
         const caption =
           result.image.caption.length > 0
             ? result.image.caption[0].plain_text
             : "";
-        body += `![alt ${caption}](${result.image.file.url})`;
+        body += `![alt ${caption}](${result.image.external.url})`;
       } else if (result.type == "toggle") {
         //console.log("toggle");
         //console.log(result);
@@ -73,9 +74,9 @@ export async function getPostData(page, content, locale, category) {
     }
   }
 
-  // console.log(body);
+  //console.log(body);
 
-  //console.log(page.properties.Tags.multi_select);
+  //console.log(page.properties.Category.select);
 
   const postData = {
     id: page.id,
@@ -88,7 +89,7 @@ export async function getPostData(page, content, locale, category) {
     tags: page.properties.Tags.multi_select,
     content: body,
     locale: locale,
-    category: category,
+    category: page.properties.Category.select.name,
   };
 
   return postData;
@@ -101,9 +102,7 @@ export async function getFeaturedNotionPages(locale) {
   const databaseId =
     locale == "ko"
       ? process.env.NOTION_DATABASE_ID_KO
-      : process.env.NOTION_DATABASE_ID;
-
-  const category = CATEGORY_VEGAN_JOURNEY;
+      : process.env.NOTION_DATABASE_ID_EN;
 
   const response = await notion.databases.query({
     database_id: databaseId,
@@ -131,11 +130,11 @@ export async function getFeaturedNotionPages(locale) {
     ],
   });
 
-  //   console.log("response:");
-  //   console.log(response.results[0].properties.Featured.checkbox);
+  //console.log("response:");
+  //console.log(response.results[0].properties.Featured.checkbox);
 
   for (const result of response.results) {
-    pages.push(await getPostData(result, null, locale, category));
+    pages.push(await getPostData(result, null, locale));
   }
 
   // console.log("pages:");
@@ -144,13 +143,13 @@ export async function getFeaturedNotionPages(locale) {
   return pages;
 }
 
-export async function getNotionPage(slug, locale, category) {
+export async function getNotionPage(slug, locale) {
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-  const databaseId = process.env.NOTION_DATABASE_ID_KO;
-  // locale == "ko"
-  //   ? process.env.NOTION_DATABASE_ID_KR
-  //   : process.env.NOTION_DATABASE_ID;
+  const databaseId =
+    locale == "ko"
+      ? process.env.NOTION_DATABASE_ID_KO
+      : process.env.NOTION_DATABASE_ID_EN;
 
   const response = await notion.databases.query({
     database_id: databaseId,
@@ -169,12 +168,7 @@ export async function getNotionPage(slug, locale, category) {
   const content = await notion.blocks.children.list({
     block_id: response.results[0].id,
   });
-  const postData = await getPostData(
-    response.results[0],
-    content,
-    locale,
-    category
-  );
+  const postData = await getPostData(response.results[0], content, locale);
 
   return postData;
 }
@@ -182,11 +176,10 @@ export async function getNotionPage(slug, locale, category) {
 export async function getAllNotionPages(locale) {
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-  const databaseId = process.env.NOTION_DATABASE_ID_KO;
-  // locale == "ko"
-  //   ? process.env.NOTION_DATABASE_ID_KO
-  //   : process.env.NOTION_DATABASE_ID;
-  const category = CATEGORY_VEGAN_JOURNEY;
+  const databaseId =
+    locale == "ko"
+      ? process.env.NOTION_DATABASE_ID_KO
+      : process.env.NOTION_DATABASE_ID_EN;
 
   const pages = [];
 
@@ -211,7 +204,7 @@ export async function getAllNotionPages(locale) {
   });
 
   for (const result of response.results) {
-    pages.push(await getPostData(result, null, locale, category));
+    pages.push(await getPostData(result, null, locale));
   }
 
   // console.log(pages);

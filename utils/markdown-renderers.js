@@ -1,3 +1,5 @@
+import { Linkify, Preview } from "react-linkify";
+
 export const renderers = {
   h1: ({ children }) => (
     <>
@@ -24,7 +26,7 @@ export const renderers = {
   ),
   p: ({ children }) => <p className=" py-2">{children}</p>,
   ul: ({ children }) => (
-    <div className="p-4 py-2">
+    <div className="border-gray-400 border-2 rounded-lg p-4 py-2">
       <ul className="list-disc list-inside !important">{children}</ul>
     </div>
   ),
@@ -37,4 +39,18 @@ export const renderers = {
       {children}
     </blockquote>
   ),
+  a: ({ href, children }) => {
+    return (
+      <div>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline"
+        >
+          {children}
+        </a>
+      </div>
+    );
+  },
 };
