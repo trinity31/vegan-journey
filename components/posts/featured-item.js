@@ -2,9 +2,10 @@ import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function FeatureItem(props) {
-  const { title, image, excerpt, category, date, slug, id } = props.post;
-  const { index } = props.index;
+export default function FeatureItem({ post, index }) {
+  const { title, image, excerpt, category, date, slug } = post;
+
+  console.log(index);
 
   return (
     <div className="flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center cursor-pointer">
@@ -35,8 +36,8 @@ export default function FeatureItem(props) {
             <h2 className="font-display text-xl font-black text-secondary-500 md:text-3xl lg:text-5xl tracking-wide text-center mt-4 lg:leading-tight md:text-left">
               {title}
             </h2>
-            <div className="flex justify-left mt-3 space-x-3 text-gray-500 ">
-              <div className="flex items-center gap-3">
+            <div className="flex justify-center sm:justify-start mt-3  text-gray-500 ">
+              <div className="flex items-center sm:items-start gap-3">
                 <time
                   className="text-gray-500 dark:text-gray-400"
                   dateTime={date}
