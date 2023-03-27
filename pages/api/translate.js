@@ -61,6 +61,13 @@ async function getPostData(page, content, locale) {
     content: body,
     locale: locale,
     category: page.properties.Category.select.name,
+    ingredients: page.properties.Ingredients.multi_select,
+    country: page.properties.Country.select
+      ? page.properties.Country.select.name
+      : "",
+    course: page.properties.Course.select
+      ? page.properties.Course.select.name
+      : "",
   };
 
   return postData;
@@ -123,6 +130,7 @@ export default async function handler(req, res) {
   //   req.body: { from : 'ko, to: 'en'}
 
   //Retrive pages which needs to be translated
+  console.log(req.body);
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const pages = await getNotionPagesNotTranslated(notion, req.body.from);
   const databaseIdTo =
@@ -135,7 +143,7 @@ export default async function handler(req, res) {
       block_id: page.id,
     });
 
-    // console.log(content);
+    //console.log(content);
 
     // console.log("page: ");
     // console.log(page);
@@ -224,6 +232,22 @@ export default async function handler(req, res) {
       })
     );
 
+    // console.log(page.tags);
+    // console.log(page.ingredients);
+
+    const ingredientsTo = await Promise.all(
+      page.ingredients.map(async (ingredient) => {
+        const nameTo = await translate.translate(ingredient.name, req.body.to);
+        return {
+          name: nameTo[0],
+          color: ingredient.color,
+        };
+      })
+    );
+
+    const countryTo = await translate.translate(page.country, req.body.to);
+    const courseTo = await translate.translate(page.course, req.body.to);
+
     (async () => {
       const response = await notion.pages.create({
         parent: {
@@ -264,8 +288,21 @@ export default async function handler(req, res) {
               name: req.body.to,
             },
           },
+          Country: {
+            select: {
+              name: countryTo[0],
+            },
+          },
+          Course: {
+            select: {
+              name: courseTo[0],
+            },
+          },
           Tags: {
             multi_select: tagsTo,
+          },
+          Ingredients: {
+            multi_select: ingredientsTo,
           },
           Category: {
             select: {

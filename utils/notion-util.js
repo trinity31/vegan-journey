@@ -89,7 +89,16 @@ export async function getPostData(page, content, locale) {
     tags: page.properties.Tags.multi_select,
     content: body,
     locale: locale,
-    category: page.properties.Category.select.name,
+    category: page.properties.Category.select
+      ? page.properties.Category.select.name
+      : "",
+    ingredients: page.properties.Ingredients.multi_select,
+    country: page.properties.Country.select
+      ? page.properties.Country.select.name
+      : "",
+    Course: page.properties.Course.select
+      ? page.properties.Course.select.name
+      : "",
   };
 
   return postData;
@@ -139,6 +148,90 @@ export async function getFeaturedNotionPages(locale) {
 
   // console.log("pages:");
   // console.log(pages);
+
+  return pages;
+}
+
+export async function getJourneyNotionPages(locale) {
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+  const pages = [];
+
+  const databaseId =
+    locale == "ko"
+      ? process.env.NOTION_DATABASE_ID_KO
+      : process.env.NOTION_DATABASE_ID_EN;
+
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      and: [
+        {
+          property: "Done",
+          checkbox: {
+            equals: true,
+          },
+        },
+        {
+          property: "Category",
+          select: {
+            equals: "journey",
+          },
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: "Published",
+        direction: "descending",
+      },
+    ],
+  });
+
+  for (const result of response.results) {
+    pages.push(await getPostData(result, null, locale));
+  }
+
+  return pages;
+}
+
+export async function getRecipeNotionPages(locale) {
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+  const pages = [];
+
+  const databaseId =
+    locale == "ko"
+      ? process.env.NOTION_DATABASE_ID_KO
+      : process.env.NOTION_DATABASE_ID_EN;
+
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      and: [
+        {
+          property: "Done",
+          checkbox: {
+            equals: true,
+          },
+        },
+        {
+          property: "Category",
+          select: {
+            equals: "recipe",
+          },
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: "Published",
+        direction: "descending",
+      },
+    ],
+  });
+
+  for (const result of response.results) {
+    pages.push(await getPostData(result, null, locale));
+  }
 
   return pages;
 }

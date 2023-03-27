@@ -1,7 +1,7 @@
 import { ThemeProvider } from "next-themes";
 import "../css/tailwind.css";
 import Layout from "@/components/layout/layout";
-import { BrowserRouter } from "react-router-dom";
+import { appWithTranslation } from "next-i18next";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -13,4 +13,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

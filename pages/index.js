@@ -1,4 +1,4 @@
-import FeaturedPosts from "@/components/homepage/featured-posts";
+import FeaturedPosts from "@/components/posts/featured-posts";
 import { getFeaturedNotionPages } from "@/utils/notion-util";
 import Head from "next/head";
 import Script from "next/script";

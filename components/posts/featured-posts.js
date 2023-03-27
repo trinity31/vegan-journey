@@ -1,5 +1,5 @@
 import Container from "../container";
-import FeatureItem from "../posts/featured-item";
+import FeatureItem from "./featured-item";
 
 export default function FeaturedPosts(props) {
   const { posts } = props;
