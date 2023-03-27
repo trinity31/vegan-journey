@@ -6,10 +6,15 @@ import { getAllNotionPages, getNotionPage } from "@/utils/notion-util";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { parseISO, format } from "date-fns";
 import Image from "next/image";
+import { CircularProgress } from "@mui/material";
 
 export default function PostDetailPage({ post }) {
   if (!post) {
-    return <div>Loading...</div>; // or any other fallback component or message
+    return (
+      <div>
+        <CircularProgress color="success" />
+      </div>
+    ); // or any other fallback component or message
   }
 
   return (

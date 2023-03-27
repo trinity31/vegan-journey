@@ -20,18 +20,18 @@ export default function FeatureItem({ post, index }) {
       </div>
 
       <div
-        className={`md:w-6/12 mt-16 md:mt-0 ${
+        className={`md:w-6/12 mt-8 md:mt-0 ${
           index % 2 === 0
             ? `md:ml-12 lg:ml-16 md:order-last`
             : `md:mr-12 lg:mr-16 md:order-first`
         }`}
       >
         <Link href={`/posts/${slug}`}>
-          <div className="g:py-8 text-center md:text-left">
+          <div className="g:py-8 text-center sm:text-left">
             <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
               {category}
             </div>
-            <h2 className="font-display text-xl font-black text-secondary-500 md:text-3xl lg:text-5xl tracking-wide text-center mt-4 lg:leading-tight md:text-left">
+            <h2 className="font-display text-xl font-black text-secondary-500 md:text-3xl lg:text-5xl tracking-wide text-center sm:text-left mt-4 lg:leading-tight md:text-left">
               {title}
             </h2>
             <div className="flex justify-center sm:justify-start mt-3  text-gray-500 ">
@@ -44,7 +44,7 @@ export default function FeatureItem({ post, index }) {
                 </time>
               </div>
             </div>
-            <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-200">
+            <p className="mt-4 text-center sm:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-200">
               {excerpt}
             </p>
           </div>

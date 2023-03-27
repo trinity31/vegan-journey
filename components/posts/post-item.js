@@ -22,14 +22,14 @@ export default function PostItem(props) {
 
       <div className={`mt-4  md:order-last`}>
         <Link href={`/posts/${slug}`}>
-          <div className="g:py-8 text-center md:text-left">
+          <div className="g:py-8 text-center sm:text-left md:text-left">
             <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
               {category}
             </div>
-            <h2 className="font-display text-xl font-black text-secondary-500 md:text-3xl lg:text-5xl tracking-wide text-center mt-4 lg:leading-tight md:text-left">
+            <h2 className="font-display text-xl font-black text-secondary-500 md:text-3xl lg:text-5xl tracking-wide text-center sm:text-left mt-4 lg:leading-tight md:text-left">
               {title}
             </h2>
-            <div className="flex mt-3 text-gray-500 ">
+            <div className="flex justify-center sm:justify-start mt-3 text-gray-500 ">
               <time
                 className="text-gray-500 dark:text-gray-400"
                 dateTime={date}
