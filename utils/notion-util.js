@@ -38,8 +38,8 @@ export async function getPostData(page, content, locale) {
         body += `[${caption}](${result.bookmark.url})`;
         //   console.log(`[${caption}](${result.bookmark.url})`);
       } else if (result.type == "image") {
-        console.log("image:");
-        console.log(result.image);
+        // console.log("image:");
+        // console.log(result.image);
         const caption =
           result.image.caption.length > 0
             ? result.image.caption[0].plain_text

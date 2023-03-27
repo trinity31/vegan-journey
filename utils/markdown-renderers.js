@@ -1,5 +1,3 @@
-import { Linkify, Preview } from "react-linkify";
-
 export const renderers = {
   h1: ({ children }) => (
     <>
