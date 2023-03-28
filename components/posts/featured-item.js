@@ -31,7 +31,7 @@ export default function FeatureItem({ post, index }) {
             <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
               {category}
             </div>
-            <h2 className="font-display text-xl font-black text-secondary-500 md:text-3xl lg:text-5xl tracking-wide text-center sm:text-left mt-4 lg:leading-tight md:text-left">
+            <h2 className="font-display text-l font-black text-secondary-500 md:text-2xl lg:text-3xl tracking-wide text-center sm:text-left mt-4 lg:leading-tight md:text-left">
               {title}
             </h2>
             <div className="flex justify-center sm:justify-start mt-3  text-gray-500 ">
