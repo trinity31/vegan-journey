@@ -1,9 +1,20 @@
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+import TagLabel from "@/components/posts/category";
 
 export default function PostItem(props) {
-  const { title, image, excerpt, category, date, slug, id } = props.post;
+  const {
+    title,
+    image,
+    tags,
+    excerpt,
+    category,
+    date,
+    slug,
+    ingredients,
+    country,
+  } = props.post;
   const { index } = props.index;
 
   return (
@@ -26,6 +37,11 @@ export default function PostItem(props) {
             <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
               {category}
             </div>
+
+            <div class="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
+              {country}
+            </div>
+
             <h2 className="font-display font-black text-secondary-500 tracking-wide text-center sm:text-left mt-4 lg:leading-tight md:text-left">
               {title}
             </h2>
@@ -37,9 +53,17 @@ export default function PostItem(props) {
                 {format(parseISO(date), "MMMM dd, yyyy")}
               </time>
             </div>
-            {/* <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-200">
+            <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-200">
               {excerpt}
-            </p> */}
+            </p>
+            <div className="flex justify-left">
+              <TagLabel tags={tags} color={"pink"} />
+            </div>
+            {ingredients.length > 0 && (
+              <div className="flex justify-left">
+                <TagLabel tags={ingredients} color={"green"} />
+              </div>
+            )}
           </div>
         </Link>
       </div>

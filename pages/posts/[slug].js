@@ -7,8 +7,12 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { parseISO, format } from "date-fns";
 import Image from "next/image";
 import { CircularProgress } from "@mui/material";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export default function PostDetailPage({ post }) {
+  const { t } = useTranslation("common");
+
   if (!post) {
     return (
       <div>
@@ -24,6 +28,9 @@ export default function PostDetailPage({ post }) {
           <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
             {post.category}
           </div>
+          <div class="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
+            {post.country}
+          </div>
 
           <h1 className="mt-2 mb-3 text-4xl font-semibold tracking-tight text-left lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
             {post.title}
@@ -33,7 +40,14 @@ export default function PostDetailPage({ post }) {
             <TagLabel tags={post.tags} />
           </div>
 
-          <div className="flex justify-left mt-3 space-x-3 text-gray-500 ">
+          {post.ingredients.length > 0 && (
+            <div className="flex justify-left">
+              {/* {t("main_ingredients")} */}
+              <TagLabel tags={post.ingredients} />
+            </div>
+          )}
+
+          {/* <div className="flex justify-left mt-3 space-x-3 text-gray-500 ">
             <div className="flex items-center gap-3">
               <time
                 className="text-gray-500 dark:text-gray-400"
@@ -41,9 +55,8 @@ export default function PostDetailPage({ post }) {
               >
                 {format(parseISO(post.date), "MMMM dd, yyyy")}
               </time>
-              {/* <span>· {post.estReadingTime || "5"} min read</span> */}
             </div>
-          </div>
+          </div> */}
 
           <Image
             src={post.image}
@@ -75,6 +88,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       post: postData,
+      ...(await serverSideTranslations(context.locale, ["common"])),
     },
     revalidate: 600,
   };

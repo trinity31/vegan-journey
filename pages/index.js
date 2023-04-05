@@ -12,6 +12,10 @@ export default function HomePage(props) {
           name="description"
           content="Vegan travel courses and recipes from countries around the world."
         />
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADS_CLIENT_ID}`}
+        ></script>
       </Head>
       {/* <Script
         async
