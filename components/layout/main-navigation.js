@@ -21,13 +21,13 @@ function MainNavigation() {
       label: "Search",
       href: "/search",
     },
+  ];
+  const devMenu = [
     {
       //process.env.NODE_ENV === "development"
       label: "Create",
       href: "/create",
     },
-  ];
-  const devMenu = [
     {
       label: "Manage",
       href: "/manage",

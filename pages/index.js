@@ -1,3 +1,5 @@
+import Banner from "@/components/banner";
+import Container from "@/components/container";
 import FeaturedPosts from "@/components/posts/featured-posts";
 import { getFeaturedNotionPages } from "@/utils/notion-util";
 import Head from "next/head";
@@ -17,11 +19,15 @@ export default function HomePage(props) {
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADS_CLIENT_ID}`}
         ></script>
       </Head>
-      {/* <Script
-        async
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADS_CLIENT_ID}`}
-        crossorigin="anonymous"
-      ></Script> */}
+      <Container>
+        <div class="flex sm:justify-end ">
+          <Banner
+            src="/images/aroma_journey_banner.jpg"
+            alt="Aroma Journey"
+            href="https://aroma.joyfuljourney.today"
+          />
+        </div>
+      </Container>
       <FeaturedPosts posts={props.posts} />
     </>
   );

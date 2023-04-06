@@ -6,7 +6,7 @@ export default function FeatureItem({ post, index }) {
   const { title, image, excerpt, category, date, slug } = post;
 
   return (
-    <div className="flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center cursor-pointer">
+    <div className="flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto pb-20 md:pb-24 items-center cursor-pointer">
       <div className="md:w-6/12 flex-shrink-0 relative ">
         <Link href={`/posts/${slug}`}>
           <Image
