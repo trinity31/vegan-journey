@@ -1,6 +1,6 @@
 import Container from "../container";
 import { useTranslation } from "next-i18next";
-import PostItem from "./post-item";
+import JourneyItem from "./journey-item";
 
 export default function JourneyPosts(props) {
   const { posts } = props;
@@ -14,9 +14,12 @@ export default function JourneyPosts(props) {
       <h3 class="text-xl font-medium mb-4 text-gray-700">
         {t("journey_posts_desc")}
       </h3>
-      {posts.map((post, index) => (
-        <PostItem key={post.slug} post={post} index={index} />
-      ))}
+      <div class="grid grid-cols-1 py-5 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+        {posts &&
+          posts.map((post, index) => (
+            <JourneyItem key={post.slug} post={post} index={index} />
+          ))}
+      </div>
     </Container>
   );
 }

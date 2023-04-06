@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import TagLabel from "@/components/posts/category";
 
-export default function PostItem(props) {
+export default function JourneyItem(props) {
   const {
     title,
     image,
@@ -18,8 +18,8 @@ export default function PostItem(props) {
   const { index } = props.index;
 
   return (
-    <div className="flex flex-col mb-8 md:flex-col justify-center max-w-screen-xl mx-auto md:items-left cursor-pointer">
-      <div className="flex-shrink-0 relative ">
+    <div className="flex flex-col sm:w-6/7 mb-8 md:flex-col justify-center max-w-screen-xl mx-auto  cursor-pointer">
+      <div className="flex-shrink-0 relative  ">
         <Link href={`/posts/${slug}`}>
           <Image
             src={image}
@@ -31,7 +31,7 @@ export default function PostItem(props) {
         </Link>
       </div>
 
-      <div className={`mt-4  md:order-last`}>
+      <div className={`mt-4 `}>
         <Link href={`/posts/${slug}`}>
           <div className="g:py-8 text-center sm:text-left md:text-left">
             <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
@@ -56,14 +56,14 @@ export default function PostItem(props) {
             <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-200">
               {excerpt}
             </p>
-            <div className="flex justify-left">
+            {/* <div className="flex justify-left">
               <TagLabel tags={tags} color={"pink"} />
-            </div>
-            {ingredients.length > 0 && (
+            </div> */}
+            {/* {ingredients.length > 0 && (
               <div className="flex justify-left">
                 <TagLabel tags={ingredients} color={"green"} />
               </div>
-            )}
+            )} */}
           </div>
         </Link>
       </div>

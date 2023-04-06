@@ -1,6 +1,6 @@
 import Container from "../container";
 import { useTranslation } from "next-i18next";
-import PostItem from "./post-item";
+import PostItem from "./recipe-item";
 import PostsGrid from "./post-grid";
 
 export default function RecipePosts(props) {
