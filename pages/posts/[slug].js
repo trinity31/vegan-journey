@@ -30,6 +30,7 @@ export default function PostDetailPage({ post }) {
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:image" content={post.image} />
+        <meta property="og:type" content="article"></meta>
       </Head>
       <Container className="!pt-0">
         <div className="max-w-screen-md mx-auto ">
