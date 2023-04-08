@@ -6,4 +6,5 @@ export const color = {
   orange: "text-orange-700",
   purple: "text-purple-600",
   pink: "text-pink-600",
+  gray: "text-gray-700",
 };

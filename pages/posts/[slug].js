@@ -9,6 +9,7 @@ import Image from "next/image";
 import { CircularProgress } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Head from "next/head";
 
 export default function PostDetailPage({ post }) {
   const { t } = useTranslation("common");
@@ -23,6 +24,13 @@ export default function PostDetailPage({ post }) {
 
   return (
     <article>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={post.excerpt} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content={post.image} />
+      </Head>
       <Container className="!pt-0">
         <div className="max-w-screen-md mx-auto ">
           <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">

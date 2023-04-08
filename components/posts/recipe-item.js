@@ -15,7 +15,7 @@ export default function PostItem(props) {
     ingredients,
     country,
   } = props.post;
-  const { index } = props.index;
+  //const { index } = props.index;
 
   return (
     <div className="flex flex-col mb-8 md:flex-col justify-center max-w-screen-xl mx-auto  cursor-pointer">
@@ -32,16 +32,16 @@ export default function PostItem(props) {
       </div>
 
       <div className={`mt-4 `}>
-        <Link href={`/posts/${slug}`}>
-          <div className="g:py-8 text-center sm:text-left md:text-left">
-            <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
-              {category}
-            </div>
+        <div className="g:py-8 text-center sm:text-left md:text-left">
+          <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
+            {category}
+          </div>
 
-            <div class="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
-              {country}
-            </div>
+          <div class="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
+            {country}
+          </div>
 
+          <Link href={`/posts/${slug}`}>
             <h2 className="font-display font-black text-secondary-500 tracking-wide text-center sm:text-left mt-4 lg:leading-tight md:text-left">
               {title}
             </h2>
@@ -56,16 +56,16 @@ export default function PostItem(props) {
             <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-200">
               {excerpt}
             </p>
-            <div className="flex justify-left mt-3">
-              <TagLabel tags={tags} color={"pink"} />
-            </div>
-            {ingredients.length > 0 && (
-              <div className="flex justify-left mt-2">
-                <TagLabel tags={ingredients} color={"green"} />
-              </div>
-            )}
+          </Link>
+          <div className="flex justify-left mt-3">
+            <TagLabel tags={tags} color={"pink"} />
           </div>
-        </Link>
+          {ingredients.length > 0 && (
+            <div className="flex justify-left mt-2">
+              <TagLabel tags={ingredients} color={"green"} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

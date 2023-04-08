@@ -76,7 +76,7 @@ export async function getPostData(page, content, locale) {
 
   //console.log(body);
 
-  //console.log(page.properties.Category.select);
+  //console.log(page.properties.Tags.multi_select);
 
   const postData = {
     id: page.id,
@@ -175,6 +175,56 @@ export async function getJourneyNotionPages(locale) {
           property: "Category",
           select: {
             equals: "journey",
+          },
+        },
+      ],
+    },
+    sorts: [
+      {
+        property: "Published",
+        direction: "descending",
+      },
+    ],
+  });
+
+  for (const result of response.results) {
+    pages.push(await getPostData(result, null, locale));
+  }
+
+  return pages;
+}
+
+export async function getNotionPagesByTag(tag, locale) {
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+  const pages = [];
+
+  // console.log("getNotionPagesByTag", tag);
+  // console.log("locale: ", locale);
+  const databaseId =
+    locale == "ko"
+      ? process.env.NOTION_DATABASE_ID_KO
+      : process.env.NOTION_DATABASE_ID_EN;
+
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      or: [
+        {
+          property: "Tags",
+          multi_select: {
+            contains: tag,
+          },
+        },
+        {
+          property: "Ingredients",
+          multi_select: {
+            contains: tag,
+          },
+        },
+        {
+          property: "Country",
+          select: {
+            equals: tag,
           },
         },
       ],
