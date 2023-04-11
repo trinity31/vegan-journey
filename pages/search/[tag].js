@@ -9,7 +9,7 @@ export default function SearchByTagResultPage({ posts }) {
 
   return (
     <Container>
-      <h3 class="text-xl font-medium mb-4 text-gray-700">{tag}</h3>
+      <h3 className="text-xl font-medium mb-4 text-gray-700">{tag}</h3>
       <PostsGrid posts={posts}></PostsGrid>
     </Container>
   );

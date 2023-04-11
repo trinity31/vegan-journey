@@ -34,10 +34,10 @@ export default function PostDetailPage({ post }) {
       </Head>
       <Container className="!pt-0">
         <div className="max-w-screen-md mx-auto ">
-          <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
+          <div className="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
             {post.category}
           </div>
-          <div class="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
+          <div className="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
             {post.country}
           </div>
 

@@ -28,7 +28,7 @@ export default function FeatureItem({ post, index }) {
       >
         <Link href={`/posts/${slug}`}>
           <div className="g:py-8 text-center sm:text-left">
-            <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
+            <div className="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
               {category}
             </div>
             <h2 className="font-display text-l font-black text-secondary-500 md:text-2xl lg:text-3xl tracking-wide text-center sm:text-left mt-4 lg:leading-tight md:text-left">

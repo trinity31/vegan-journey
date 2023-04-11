@@ -9,10 +9,10 @@ export default function RecipePosts(props) {
 
   return (
     <Container>
-      <h1 class="text-3xl font-bold mb-6 text-green-900">
+      <h1 className="text-3xl font-bold mb-6 text-green-900">
         {t("recipe_posts_title")}
       </h1>
-      <h3 class="text-xl font-medium mb-4 text-gray-700">
+      <h3 className="text-xl font-medium mb-4 text-gray-700">
         {t("recipe_posts_desc")}
       </h3>
       <PostsGrid posts={props.posts}></PostsGrid>

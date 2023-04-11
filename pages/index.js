@@ -19,8 +19,8 @@ export default function HomePage(props) {
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.ADS_CLIENT_ID}`}
         ></script>
       </Head>
-      <div class="container px-8 mx-auto xl:px-5 max-w-screen-lg bg-white dark:bg-black">
-        <div class="flex sm:justify-end ">
+      <div className="container px-8 mx-auto xl:px-5 max-w-screen-lg bg-white dark:bg-black">
+        <div className="flex sm:justify-end ">
           <Banner
             src="/images/aroma_journey_banner.jpg"
             alt="Aroma Journey"

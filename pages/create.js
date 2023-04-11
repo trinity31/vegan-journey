@@ -182,7 +182,7 @@ export default function CreatePage(props) {
                 checked={cuisine.checked}
                 onChange={() => handleCheckboxChange(index)}
               />
-              <label class="ml-2">{cuisine.name}</label>
+              <label className="ml-2">{cuisine.name}</label>
             </div>
           ))}
         </div>

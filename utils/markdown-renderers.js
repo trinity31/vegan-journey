@@ -14,7 +14,7 @@ export const renderers = {
   h3: ({ children }) => (
     <div>
       {/* <br /> */}
-      <h3 class="text-lg my-2">{children}</h3>
+      <h3 className="text-lg my-2">{children}</h3>
     </div>
   ),
   img: ({ src, alt }) => (

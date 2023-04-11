@@ -33,11 +33,11 @@ export default function PostItem(props) {
 
       <div className={`mt-4 `}>
         <div className="g:py-8 text-center sm:text-left md:text-left">
-          <div class="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
+          <div className="uppercase text-blue-600/75 text-xs font-bold tracking-widest leading-loose">
             {category}
           </div>
 
-          <div class="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
+          <div className="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
             {country}
           </div>
 
