@@ -18,7 +18,7 @@ export default function PostItem(props) {
   //const { index } = props.index;
 
   return (
-    <div className="flex flex-col mb-8 md:flex-col justify-center max-w-screen-xl mx-auto  cursor-pointer">
+    <div className="flex flex-col sm:w-6/7 mb-8 md:flex-col justify-start max-w-screen-xl mx-auto  cursor-pointer">
       <div className="flex-shrink-0 relative  ">
         <Link href={`/posts/${slug}`}>
           <Image
@@ -61,7 +61,7 @@ export default function PostItem(props) {
             <TagLabel tags={tags} color={"pink"} />
           </div>
           {ingredients.length > 0 && (
-            <div className="flex justify-left mt-2">
+            <div className="flex justify-left mt-2 flex-wrap">
               <TagLabel tags={ingredients} color={"green"} />
             </div>
           )}

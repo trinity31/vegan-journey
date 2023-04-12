@@ -18,7 +18,7 @@ export default function JourneyItem(props) {
   const { index } = props.index;
 
   return (
-    <div className="flex flex-col sm:w-6/7 mb-8 md:flex-col justify-center max-w-screen-xl mx-auto  cursor-pointer">
+    <div className="flex flex-col sm:w-6/7 mb-8 md:flex-col justify-start max-w-screen-xl mx-auto  cursor-pointer">
       <div className="flex-shrink-0 relative  ">
         <Link href={`/posts/${slug}`}>
           <Image

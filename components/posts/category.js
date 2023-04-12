@@ -14,7 +14,7 @@ export default function TagLabel({ tags, color }) {
   // };
 
   return (
-    <div className="flex gap-3">
+    <div className="flex flex-wrap gap-3">
       {tags?.length &&
         tags.slice(0).map((tag, index) => (
           <Link href={`/search/${tag.name}`} key={index}>

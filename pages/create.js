@@ -32,7 +32,7 @@ export default function CreatePage(props) {
   const handleSubmitCountry = async (e) => {
     e.preventDefault();
 
-    const data = { country: selectedCountry.label, type: "cuisine" };
+    const data = { country: selectedCountry.value, type: "cuisine" };
     const options = {
       method: "POST",
       headers: {

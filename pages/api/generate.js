@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     `;
   } else if (req.body.type == "recipe") {
     prompt = `
-    Please write a simple and easy recipe of vegan ${req.body.cuisine} serving 2, including ingredients and instructions , using markdown format 
+     I need you to think like a chef who knows simple, easy-to-make home made recipes.  The recipe should be simplest as possible, which anyone can follow. The recipe must indicate the amount of each ingredient for 2. Describe me the detailed process to make the recipe of vegan ${req.body.cuisine} serving 2, including ingredients and instructions , using markdown format 
     `;
   } else if (req.body.type == "ingredients") {
     prompt = `
