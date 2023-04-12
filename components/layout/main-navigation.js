@@ -3,6 +3,8 @@ import Container from "../container";
 import Logo from "./logo";
 import { Disclosure } from "@headlessui/react";
 
+import LanguageSwitcher from "../language-switch";
+
 function MainNavigation() {
   const menu = [
     {
@@ -83,6 +85,7 @@ function MainNavigation() {
                       </a>
                     </Link>
                   ))}
+
                   {process.env.NODE_ENV === "development" &&
                     devMenu.map((item, index) => (
                       <Link legacyBehavior href={item.href} key={index}>
@@ -95,6 +98,7 @@ function MainNavigation() {
                         </a>
                       </Link>
                     ))}
+                  <LanguageSwitcher />
                 </div>
               </div>
               <Disclosure.Panel>
@@ -110,6 +114,7 @@ function MainNavigation() {
                       </a>
                     </Link>
                   ))}
+                  <LanguageSwitcher />
                 </div>
               </Disclosure.Panel>
             </>
