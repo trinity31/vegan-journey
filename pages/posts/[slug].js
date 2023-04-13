@@ -72,7 +72,7 @@ export default function PostDetailPage({ post }) {
             alt={post.title}
             width="768"
             height="512"
-            className="rounded-lg object-cover object-center  aspect-[16/9] mt-3"
+            className="rounded-lg object-cover object-center  aspect-[1/1] mt-3 mb-5"
           />
 
           <ReactMarkdown className="markdown" components={renderers}>

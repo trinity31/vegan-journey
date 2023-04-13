@@ -8,6 +8,10 @@ ul {
   @apply pl-4; /* optional: add left padding */
 }
 
+ol {
+  @apply list-decimal;
+}
+
 li {
   @apply list-item;
   @apply text-base my-2;

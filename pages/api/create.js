@@ -18,8 +18,16 @@ export default async function handler(req, res) {
   //   locale: "en",
   //   category: "recipe",
   // };
-  const { recipe, ingredients, title, country, locale, category, summary } =
-    req.body;
+  const {
+    recipe,
+    ingredients,
+    title,
+    country,
+    locale,
+    category,
+    summary,
+    intro,
+  } = req.body;
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const databaseIdTo =
     locale == "ko"
@@ -93,7 +101,7 @@ export default async function handler(req, res) {
             rich_text: [
               {
                 text: {
-                  content: recipe.trim(),
+                  content: intro.trim() + "\n" + recipe.trim(),
                 },
               },
             ],

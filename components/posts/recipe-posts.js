@@ -1,7 +1,6 @@
 import Container from "../container";
 import { useTranslation } from "next-i18next";
-import PostItem from "./recipe-item";
-import PostsGrid from "./post-grid";
+import RecipeItem from "./recipe-item";
 
 export default function RecipePosts(props) {
   const { posts } = props;
@@ -15,7 +14,13 @@ export default function RecipePosts(props) {
       <h3 className="text-xl font-medium mb-4 text-gray-700">
         {t("recipe_posts_desc")}
       </h3>
-      <PostsGrid posts={props.posts}></PostsGrid>
+      {/* <PostsGrid posts={props.posts}></PostsGrid> */}
+      <div className="grid grid-cols-1 py-5 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts &&
+          posts.map((post, index) => (
+            <RecipeItem key={post.slug} post={post} index={index} />
+          ))}
+      </div>
     </Container>
   );
 }

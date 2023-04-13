@@ -22,10 +22,15 @@ export const renderers = {
       <img src={src} alt={alt} />
     </div>
   ),
-  p: ({ children }) => <p className=" py-2">{children}</p>,
+  p: ({ children }) => <p className=" py-2 text-md">{children}</p>,
   ul: ({ children }) => (
     <div className="border-gray-400 border-2 rounded-lg p-4 py-2">
       <ul className="list-disc list-inside !important">{children}</ul>
+    </div>
+  ),
+  ol: ({ children }) => (
+    <div className="border-gray-400 border-2 rounded-lg p-4 py-2">
+      <ol className="list-decimal list-inside !important">{children}</ol>
     </div>
   ),
   li: ({ children }) => (

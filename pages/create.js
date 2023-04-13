@@ -27,6 +27,7 @@ export default function CreatePage(props) {
   const [text, setText] = useState("");
   const [ingredients, setIngredients] = useState(null);
   const [intro, setIntro] = useState("");
+  const [summary, setSummary] = useState("");
   const [image, setImage] = useState("");
 
   const handleSubmitCountry = async (e) => {
@@ -112,6 +113,21 @@ export default function CreatePage(props) {
     setIntro(resultData.data);
   };
 
+  const getSummary = async (e) => {
+    e.preventDefault();
+    const data = { intro: intro, type: "summary" };
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const response = await fetch("/api/generate", options);
+    const resultData = await response.json();
+    setSummary(resultData.data);
+  };
+
   const getImage = async (e) => {
     e.preventDefault();
     const data = { cuisine: selectedCuisine.name, type: "image" };
@@ -142,7 +158,8 @@ export default function CreatePage(props) {
       country: selectedCountry.label,
       locale: "en",
       category: "recipe",
-      summary: intro,
+      summary: summary,
+      intro: intro,
     };
     const options = {
       method: "POST",
@@ -225,6 +242,18 @@ export default function CreatePage(props) {
             className="h-40 w-full my-4 resize-none p-4 mb-4 border border-gray-400 rounded"
             value={intro}
             onChange={(e) => setIntro(e.target.value)}
+          />
+          <button
+            className="px-4 py-2 rounded bg-gray-700 text-white font-bold"
+            type="submit"
+            onClick={getSummary}
+          >
+            Get Summary
+          </button>
+          <textarea
+            className="h-40 w-full my-4 resize-none p-4 mb-4 border border-gray-400 rounded"
+            value={summary}
+            onChange={(e) => setSummary(e.target.value)}
           />
           <button
             className="px-4 py-2 rounded bg-gray-700 text-white font-bold"

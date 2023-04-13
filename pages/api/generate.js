@@ -25,10 +25,15 @@ Answer only with lowercase ingredients connected with ,
   } else if (req.body.type == "intro") {
     prompt = `
     ${req.body.recipe}\n
-    Please write an introduction of the above recipe for blog post.
+    Please write an introduction of the above recipe for blog post, including taste, atmosphere, history
     `;
   } else if (req.body.type == "image") {
     prompt = req.body.cuisine;
+  } else if (req.body.type == "summary") {
+    prompt = `
+    ${req.body.intro}\n
+    Please summarize of the above blog post intro. length: 100 words or less.
+    `;
   }
 
   console.log(prompt);
