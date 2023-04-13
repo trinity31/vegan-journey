@@ -22,7 +22,7 @@ export const renderers = {
       <img src={src} alt={alt} />
     </div>
   ),
-  p: ({ children }) => <p className=" py-2 text-md">{children}</p>,
+  p: ({ children }) => <p className=" py-2 text-lg">{children}</p>,
   ul: ({ children }) => (
     <div className="border-gray-400 border-2 rounded-lg p-4 py-2">
       <ul className="list-disc list-inside !important">{children}</ul>
@@ -33,9 +33,7 @@ export const renderers = {
       <ol className="list-decimal list-inside !important">{children}</ol>
     </div>
   ),
-  li: ({ children }) => (
-    <li className="list-item text-base my-2">{children}</li>
-  ),
+  li: ({ children }) => <li className="list-item text-lg my-2">{children}</li>,
 
   blockquote: ({ children }) => (
     <blockquote className="bg-gray-100 border-l-4 border-gray-400 italic pl-4 py-2 my-4">

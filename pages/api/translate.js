@@ -245,6 +245,8 @@ export default async function handler(req, res) {
       })
     );
 
+    console.log(ingredientsTo);
+
     const countryTo = await translate.translate(page.country, req.body.to);
     const courseTo = await translate.translate(page.course, req.body.to);
 
