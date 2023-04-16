@@ -183,6 +183,16 @@ export default function CreatePage(props) {
             className="w-full mb-4"
             placeholder="Select a country"
           />
+          {/* <TextField
+            className=" w-full resize-none my-4 border border-gray-400 rounded"
+            value={selectedCountry.value}
+            onChange={(e) =>
+              setSelectedCountry({
+                value: e.target.value,
+                label: e.target.value,
+              })
+            }
+          /> */}
           <button
             className="px-4 py-2 rounded bg-gray-700 text-white font-bold"
             type="submit"

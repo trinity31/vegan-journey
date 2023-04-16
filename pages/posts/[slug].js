@@ -70,9 +70,10 @@ export default function PostDetailPage({ post }) {
           <Image
             src={post.image}
             alt={post.title}
-            width="768"
-            height="512"
-            className="rounded-lg object-cover object-center  aspect-[1/1] mt-3 mb-5"
+            width="800"
+            height="600"
+            className="rounded-lg object-cover object-center mt-3 mb-5"
+            style={{ masWidth: 500 }}
           />
 
           <ReactMarkdown className="markdown" components={renderers}>

@@ -19,10 +19,10 @@ function MainNavigation() {
       label: "Recipe",
       href: "/recipe",
     },
-    {
-      label: "Search",
-      href: "/search",
-    },
+    // {
+    //   label: "Search",
+    //   href: "/search",
+    // },
   ];
   const devMenu = [
     {
