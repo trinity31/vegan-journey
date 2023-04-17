@@ -275,9 +275,9 @@ export default function CreatePage(props) {
           <Image
             src={image}
             alt={selectedCuisine?.name}
-            width="800"
-            height="450"
-            className="rounded-lg object-cover object-center  aspect-[16/9]"
+            width="1024"
+            height="1024"
+            className="rounded-lg object-cover object-center  aspect-[1/1]"
           />
           <button
             className="px-4 py-2 rounded bg-gray-700 text-white font-bold"

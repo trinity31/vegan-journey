@@ -28,7 +28,7 @@ Answer only with lowercase ingredients connected with ,
     Please write an introduction of the above recipe for blog post. Length limit: 1500 characters
     `;
   } else if (req.body.type == "image") {
-    prompt = req.body.cuisine;
+    prompt = `Generate an image of a vegan ${req.body.cuisine}. The meal should be visually appealing and appetizing, with a focus on the natural colors and textures of the ingredients. The meal should be arranged in an attractive and appetizing manner, with a mix of different textures and colors. The background should be neutral and not distract from the food, with a focus on highlighting the freshness and quality of the ingredients. The image should have a clean and appetizing look, with a focus on the health benefits of the meal `;
   } else if (req.body.type == "summary") {
     prompt = `
     ${req.body.intro}\n
@@ -43,8 +43,10 @@ Answer only with lowercase ingredients connected with ,
       const response = await openai.createImage({
         prompt,
         n: 1,
-        size: "800x450",
+        size: "1024x1024",
       });
+      //console.log(response);
+      const image_url = response.data.data[0].url;
       if (response.status == "200") {
         console.log("Successfully generated image: ");
         console.log(image_url);
@@ -57,6 +59,7 @@ Answer only with lowercase ingredients connected with ,
           .json({ result: "Fail", data: response.data.error });
       }
     } catch (error) {
+      console.log("Error catched during image generation.");
       console.log(error);
     }
   } else {
