@@ -24,12 +24,12 @@ export const renderers = {
   ),
   p: ({ children }) => <p className=" py-2 text-lg">{children}</p>,
   ul: ({ children }) => (
-    <div className="border-gray-400 border-2 rounded-lg p-4 py-2">
+    <div className=" border-2 rounded-lg p-4 py-2">
       <ul className="list-disc list-inside !important">{children}</ul>
     </div>
   ),
   ol: ({ children }) => (
-    <div className="border-gray-400 border-2 rounded-lg p-4 py-2">
+    <div className="border-1 rounded-lg p-4 py-2">
       <ol className="list-decimal list-inside !important">{children}</ol>
     </div>
   ),

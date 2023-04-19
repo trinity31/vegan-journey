@@ -37,9 +37,11 @@ export default function RecipeItem(props) {
             {category}
           </div>
 
+          {/* <Link href={`/recipe/${country}`}> */}
           <div className="uppercase text-gray-600/75 text-sm font-bold tracking-widest leading-loose">
             {country}
           </div>
+          {/* </Link> */}
 
           <Link href={`/posts/${slug}`}>
             <h2 className="font-display font-black text-secondary-500 tracking-wide text-center sm:text-left mt-4 lg:leading-tight md:text-left">

@@ -194,7 +194,7 @@ export async function getJourneyNotionPages(locale) {
   return pages;
 }
 
-export async function getNotionPagesByTag(tag, locale) {
+export async function getNotionPagesByTag(tag, locale, category) {
   const notion = new Client({ auth: process.env.NOTION_API_KEY });
   const pages = [];
 
@@ -208,23 +208,33 @@ export async function getNotionPagesByTag(tag, locale) {
   const response = await notion.databases.query({
     database_id: databaseId,
     filter: {
-      or: [
+      and: [
         {
-          property: "Tags",
-          multi_select: {
-            contains: tag,
-          },
+          or: [
+            {
+              property: "Tags",
+              multi_select: {
+                contains: tag,
+              },
+            },
+            {
+              property: "Ingredients",
+              multi_select: {
+                contains: tag,
+              },
+            },
+            {
+              property: "Country",
+              select: {
+                equals: tag,
+              },
+            },
+          ],
         },
         {
-          property: "Ingredients",
-          multi_select: {
-            contains: tag,
-          },
-        },
-        {
-          property: "Country",
+          property: "Category",
           select: {
-            equals: tag,
+            equals: category,
           },
         },
       ],
