@@ -1,23 +1,26 @@
+import { useTranslation } from "next-i18next";
 import { useState } from "react";
 
-const countries = [
-  { id: 1, name: "Korea" },
-  { id: 2, name: "Thailand" },
-  { id: 3, name: "India" },
-  { id: 4, name: "France" },
-  { id: 5, name: "Japan" },
-  { id: 6, name: "Indonesia" },
-  { id: 7, name: "China" },
-  { id: 8, name: "America" },
-  { id: 9, name: "Middle East" },
-  { id: 10, name: "North Africa" },
-];
+// const countries = [
+//   { id: 1, name: "Korea" },
+//   { id: 2, name: "Thailand" },
+//   { id: 3, name: "India" },
+//   { id: 4, name: "France" },
+//   { id: 5, name: "Japan" },
+//   { id: 6, name: "Indonesia" },
+//   { id: 7, name: "China" },
+//   { id: 8, name: "America" },
+//   { id: 9, name: "Middle East" },
+//   { id: 10, name: "North Africa" },
+// ];
 
 export default function CountrySelector({
   selectedCountries,
   setSelectedCountries,
+  countries,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation("common");
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -42,7 +45,7 @@ export default function CountrySelector({
         id="options-menu"
         onClick={toggleDropdown}
       >
-        Select countries
+        {t("select_country")}
         {isOpen && (
           <svg width="10" height="10" style={{ marginLeft: "5px" }}>
             <polygon points="0,10 5,0 10,10" />

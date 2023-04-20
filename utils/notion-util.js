@@ -364,3 +364,23 @@ export async function getAllNotionPages(locale) {
 
   return pages;
 }
+
+export async function getCountryValues(locale) {
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
+
+  const databaseId =
+    locale == "ko"
+      ? process.env.NOTION_DATABASE_ID_KO
+      : process.env.NOTION_DATABASE_ID_EN;
+
+  // Retrieve the database information
+  const database = await notion.databases.retrieve({
+    database_id: databaseId,
+  });
+
+  // Find the select property field and get its options
+  const selectField = database.properties["Country"];
+  const selectOptions = selectField.select.options;
+
+  return selectOptions;
+}

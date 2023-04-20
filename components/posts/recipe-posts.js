@@ -2,14 +2,17 @@ import Container from "../container";
 import { useTranslation } from "next-i18next";
 import RecipeItem from "./recipe-item";
 import CountrySelector from "../country-selector";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function RecipePosts(props) {
-  const { posts } = props;
-  const { t } = useTranslation("common");
+  const { posts, countries } = props;
+  const { t, i18n } = useTranslation("common");
   const [selectedCountries, setSelectedCountries] = useState([]);
 
-  console.log(selectedCountries);
+  // Listen for changes in the locale and reset selectedCountries to []
+  useEffect(() => {
+    setSelectedCountries([]);
+  }, [i18n.language]);
 
   return (
     <Container>
@@ -19,9 +22,11 @@ export default function RecipePosts(props) {
       <h3 className="text-xl font-medium mb-4 text-gray-700">
         {t("recipe_posts_desc")}
       </h3>
+
       <CountrySelector
         selectedCountries={selectedCountries}
         setSelectedCountries={setSelectedCountries}
+        countries={countries}
       />
       <div className="grid grid-cols-1 py-5 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {selectedCountries.length === 0
