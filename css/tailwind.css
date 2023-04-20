@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --veg-green: #68890a;
+}
+
 /*Custom Styles Here*/
 ul {
   @apply list-disc;

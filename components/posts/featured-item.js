@@ -48,7 +48,7 @@ export default function FeatureItem({ post, index }) {
               {excerpt}
             </p>
             <Link href={`/posts/${slug}`}>
-              <div className="mt-4 inline-block px-6 py-2 text-sm font-medium leading-5 text-current transition-colors duration-150 bg-white-500 border border-green-500 rounded-lg hover:bg-green-400 focus:outline-none focus:shadow-outline-green active:bg-green-600">
+              <div className="mt-4 inline-block px-6 py-2 text-sm font-medium leading-5 transition-colors duration-150 bg-white-500 border border-vegreen rounded-lg hover:text-white hover:bg-vegreen focus:outline-none focus:shadow-outline-green active:bg-vegreen">
                 Read more
               </div>
             </Link>

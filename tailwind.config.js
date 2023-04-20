@@ -12,6 +12,7 @@ module.exports = {
           light: "#E5E5E5",
           dark: "#2D3748",
         },
+        vegreen: "var(--veg-green)", //#68890a
       },
     },
   },
