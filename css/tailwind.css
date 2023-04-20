@@ -26,3 +26,10 @@ blockquote {
   @apply border-2;
   @apply rounded-lg;
 }
+
+.recipe-item:hover,
+.recipe-item:active {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}

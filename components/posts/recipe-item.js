@@ -18,7 +18,7 @@ export default function RecipeItem(props) {
   //const { index } = props.index;
 
   return (
-    <div className="flex flex-col sm:w-5/7 mb-8 md:flex-col justify-start max-w-screen-xl mx-auto  cursor-pointer">
+    <div className="flex flex-col sm:w-5/7 p-3  mb-8 md:flex-col justify-start max-w-screen-xl mx-auto  cursor-pointer recipe-item ">
       <div className="flex-shrink-0 relative  ">
         <Link href={`/posts/${slug}`}>
           <Image
@@ -49,25 +49,25 @@ export default function RecipeItem(props) {
             </h2>
 
             <p className="mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-200">
-              {excerpt}
+              {excerpt}{" "}
             </p>
           </Link>
-          <div className="flex justify-left mt-3">
+          {/* <div className="flex justify-left mt-3">
             <TagLabel tags={tags} color={"pink"} />
           </div>
           {ingredients.length > 0 && (
             <div className="flex justify-left mt-2 flex-wrap">
               <TagLabel tags={ingredients} color={"green"} />
             </div>
-          )}
-          <div className="flex justify-center sm:justify-start mt-3 text-gray-500 invisible sm:visible">
+          )} */}
+          {/* <div className="flex justify-center sm:justify-start mt-3 text-gray-500 invisible sm:visible">
             <time
               className="text-gray-500 dark:text-gray-400 text-xs"
               dateTime={date}
             >
               {format(parseISO(date), "MMMM dd, yyyy")}
             </time>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

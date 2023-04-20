@@ -16,19 +16,22 @@ export default function RecipePosts(props) {
 
   return (
     <Container>
-      <h1 className="text-3xl font-bold mb-6 text-green-900">
-        {t("recipe_posts_title")}
-      </h1>
-      <h3 className="text-xl font-medium mb-4 text-gray-700">
-        {t("recipe_posts_desc")}
-      </h3>
+      <div className="px-3">
+        <h1 className="text-3xl font-bold mb-6 text-green-900">
+          {t("recipe_posts_title")}
+        </h1>
+        <h3 className="text-xl font-medium mb-4 text-gray-700">
+          {t("recipe_posts_desc")}
+        </h3>
 
-      <CountrySelector
-        selectedCountries={selectedCountries}
-        setSelectedCountries={setSelectedCountries}
-        countries={countries}
-      />
-      <div className="grid grid-cols-1 py-5 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <CountrySelector
+          selectedCountries={selectedCountries}
+          setSelectedCountries={setSelectedCountries}
+          countries={countries}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 py-5 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-0">
         {selectedCountries.length === 0
           ? posts.map((post, index) => (
               <RecipeItem key={post.slug} post={post} index={index} />
