@@ -6,18 +6,19 @@ import Image from "next/image";
 
 // 왼쪽 드롭다운 옵션
 const options = [
-  { value: "korea", label: "Korean" },
-  { value: "japan", label: "Japanese" },
-  { value: "china", label: "Chinese" },
+  { value: "korea", label: "Korea" },
+  { value: "japan", label: "Japan" },
+  { value: "china", label: "China" },
   { value: "thailand", label: "Thailand" },
   { value: "indonesia", label: "Indonesia" },
-  { value: "india", label: "Indian" },
-  { value: "america", label: "American" },
-  { value: "mexico", label: "Mexican" },
-  { value: "middle east", label: "Middle Eastern" },
-  { value: "north africa", label: "North African" },
-  { value: "italy", label: "Italian" },
-  { value: "france", label: "French" },
+  { value: "india", label: "India" },
+  { value: "america", label: "America" },
+  { value: "uk", label: "United Kingdom" },
+  { value: "mexico", label: "Mexico" },
+  { value: "middle east", label: "Middle East" },
+  { value: "north africa", label: "North Africa" },
+  { value: "italy", label: "Italy" },
+  { value: "france", label: "France" },
 ];
 
 export default function CreatePage(props) {

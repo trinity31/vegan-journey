@@ -2,13 +2,13 @@ export const renderers = {
   h1: ({ children }) => (
     <>
       {/* <br /> */}
-      <h1 className="text-3xl font-bold my-4">{children}</h1>
+      <h1 className="text-3xl font-bold mt-4 mb-2">{children}</h1>
     </>
   ),
   h2: ({ children }) => (
     <>
       <br />
-      <h2 className="font-semibold mt-2 py-2">{children}</h2>
+      <h2 className="font-semibold my-2">{children}</h2>
     </>
   ),
   h3: ({ children }) => (
@@ -24,7 +24,7 @@ export const renderers = {
   ),
   p: ({ children }) => <p className=" py-2 text-lg">{children}</p>,
   ul: ({ children }) => (
-    <div className=" border-2 rounded-lg p-4 py-2">
+    <div className=" border-2 rounded-lg p-4 py-2 mt-2">
       <ul className="list-disc list-inside !important">{children}</ul>
     </div>
   ),
