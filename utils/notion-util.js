@@ -200,6 +200,8 @@ export async function getNotionPagesByTag(tag, locale, category) {
 
   // console.log("getNotionPagesByTag", tag);
   // console.log("locale: ", locale);
+  // console.log("category: ", category);
+
   const databaseId =
     locale == "ko"
       ? process.env.NOTION_DATABASE_ID_KO
@@ -232,9 +234,9 @@ export async function getNotionPagesByTag(tag, locale, category) {
           ],
         },
         {
-          property: "Category",
-          select: {
-            equals: category,
+          property: "Done",
+          checkbox: {
+            equals: true,
           },
         },
       ],
