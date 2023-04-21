@@ -9,10 +9,10 @@ export default function JourneyPosts(props) {
   return (
     <Container>
       <div className="px-3">
-        <h1 className="text-3xl font-bold mb-6 text-green-900">
+        <h1 className="text-3xl font-bold mb-6 text-green-700">
           {t("journey_posts_title")}
         </h1>
-        <h3 className="text-xl font-medium mb-4 text-gray-700">
+        <h3 className="text-xl font-medium mb-4 text-gray-500">
           {t("journey_posts_desc")}
         </h3>
       </div>

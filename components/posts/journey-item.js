@@ -38,7 +38,7 @@ export default function JourneyItem(props) {
               {category}
             </div>
 
-            <div className="uppercase text-gray-600/75 text-xs font-bold tracking-widest leading-loose">
+            <div className="uppercase text-gray-500/75 text-xs font-bold tracking-widest leading-loose">
               {country}
             </div>
 

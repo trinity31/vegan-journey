@@ -41,7 +41,7 @@ export default function CountrySelector({
     <div className="relative inline-block text-left">
       <button
         type="button"
-        className="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+        className="inline-flex justify-center items-center rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
         id="options-menu"
         onClick={toggleDropdown}
       >
@@ -73,7 +73,7 @@ export default function CountrySelector({
                 selectedCountries.some((c) => c.id === country.id)
                   ? "border-green-800"
                   : "border-green-100"
-              } border-2 border-solid rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 flex items-center`}
+              } border-2 border-solid rounded-full px-3 py-1 text-sm font-semibold  mr-2 flex items-center`}
               onClick={() => handleSelectCountry(country)}
             >
               <span className="flex items-center">
