@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import Footer from "@/components/footer";
 import PostsGrid from "@/components/posts/post-grid";
 import { getNotionPagesByTag } from "@/utils/notion-util";
 import { useRouter } from "next/router";
@@ -14,6 +15,7 @@ export default function RecipeByTagResultPage({ posts }) {
         {` > ${tag}`}
       </h3>
       <PostsGrid posts={posts}></PostsGrid>
+      <Footer />
     </Container>
   );
 }

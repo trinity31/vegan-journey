@@ -3,6 +3,7 @@ import { getCountryValues, getRecipeNotionPages } from "@/utils/notion-util";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { useTranslation } from "next-i18next";
+import Footer from "@/components/footer";
 
 export default function RecipePage(props) {
   const { t } = useTranslation("common");
@@ -18,6 +19,7 @@ export default function RecipePage(props) {
         <meta property="og:type" content="blog"></meta>
       </Head>
       <RecipePosts posts={props.posts} countries={props.countries} />;
+      <Footer />
     </>
   );
 }

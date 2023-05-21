@@ -10,6 +10,7 @@ import { CircularProgress } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import Footer from "@/components/footer";
 
 export default function PostDetailPage({ post }) {
   const { t } = useTranslation("common");
@@ -81,6 +82,7 @@ export default function PostDetailPage({ post }) {
           </ReactMarkdown>
         </div>
       </Container>
+      <Footer />
     </article>
   );
 }

@@ -1,5 +1,6 @@
 import Banner from "@/components/banner";
 import Container from "@/components/container";
+import Footer from "@/components/footer";
 import FeaturedPosts from "@/components/posts/featured-posts";
 import { getFeaturedNotionPages } from "@/utils/notion-util";
 import Head from "next/head";
@@ -29,6 +30,7 @@ export default function HomePage(props) {
         </div>
       </div> */}
       <FeaturedPosts posts={props.posts} />
+      <Footer />
     </>
   );
 }

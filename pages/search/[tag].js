@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import Footer from "@/components/footer";
 import PostsGrid from "@/components/posts/post-grid";
 import { getNotionPagesByTag } from "@/utils/notion-util";
 import { useRouter } from "next/router";
@@ -11,6 +12,7 @@ export default function SearchByTagResultPage({ posts }) {
     <Container>
       <h3 className="text-xl font-medium mb-4 text-gray-700">{tag}</h3>
       <PostsGrid posts={posts}></PostsGrid>
+      <Footer />
     </Container>
   );
 }
