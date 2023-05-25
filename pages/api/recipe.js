@@ -7,6 +7,9 @@ const translate = new Translate({
 });
 
 export default async function handler(req, res) {
+  // Set the timeout to 100 seconds
+  req.socket.server.timeout = 100000;
+
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
   });
