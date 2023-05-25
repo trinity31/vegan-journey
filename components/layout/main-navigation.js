@@ -16,20 +16,26 @@ function MainNavigation() {
       href: "/journey",
     },
     {
-      label: "Recipe",
+      label: "Recipes",
       href: "/recipe",
     },
     // {
     //   label: "Search",
     //   href: "/search",
     // },
-  ];
-  const devMenu = [
     {
       //process.env.NODE_ENV === "development"
       label: "Create",
       href: "/create",
     },
+  ];
+  const devMenu = [
+    {
+      //process.env.NODE_ENV === "development"
+      label: "Generate",
+      href: "/generate",
+    },
+
     {
       label: "Manage",
       href: "/manage",

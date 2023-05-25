@@ -6,5 +6,13 @@
   "main_ingredients": "Main Ingredients",
   "english": "English",
   "korean": "Korean",
-  "select_country": "Select Countries"
+  "select_country": "Select Countries",
+  "ai_recipe_creator": "AI Recipe Creator",
+  "create_your_own_recipe": "Let AI create a recipe using the ingredients in your fridge! Choose the quantity and type of dish if you want!",
+  "enter_ingredients": "Enter Ingredients(Example: potato, onion, carrot)",
+  "select_quantity": "Serving Quantity",
+  "select_cuisine": "Cuisine Type",
+  "select_type": "Meal Type",
+  "generate_recipe": "Generate Recipe",
+  "generating_recipe": "Generating Recipe..."
 }

@@ -2,7 +2,9 @@ export const renderers = {
   h1: ({ children }) => (
     <>
       {/* <br /> */}
-      <h1 className="text-3xl font-bold mt-4 mb-2">{children}</h1>
+      <h1 className="text-3xl font-bold mt-4 mb-2 text-green-700">
+        {children}
+      </h1>
     </>
   ),
   h2: ({ children }) => (

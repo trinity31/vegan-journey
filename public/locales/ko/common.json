@@ -6,5 +6,13 @@
   "main_ingredients": "주요 재료",
   "english": "영어",
   "korean": "한국어",
-  "select_country": "지역 선택"
+  "select_country": "지역 선택",
+  "ai_recipe_creator": "AI 레시피 크리에이터",
+  "create_your_own_recipe": "냉장고 속 재료를 사용한 레시피를 AI로 만들어 보세요! 필요하다면 수량과 요리 종류, 타입도 선택해 보세요~",
+  "enter_ingredients": "재료 입력(예: 감자, 양파, 당근)",
+  "select_quantity": "제공 수량",
+  "select_cuisine": "요리 종류",
+  "select_type": "식사 종류",
+  "generate_recipe": "레시피 생성",
+  "generating_recipe": "레시피 생성중..."
 }
