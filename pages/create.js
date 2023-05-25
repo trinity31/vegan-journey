@@ -155,21 +155,24 @@ export default function RecipeBuilder(props) {
               <LinearProgress color="secondary" /> */}
                 <LinearProgress color="success" />
                 {/* <LinearProgress color="inherit" /> */}
-                {/* <div className="flex justify-center">
-                <Image
-                  src={
-                    "https://i.ibb.co/LZdzwDX/Trinity-illustration-of-various-kind-of-plant-based-ingredients-ce935051-ec57-481a-bdc0-d965beb4d63f.jpg"
-                  }
-                  alt={"Image"}
-                  width="512"
-                  height="512"
-                  className="m-4 p-4 rounded-lg object-cover object-center  aspect-[1/1]"
-                />
-              </div> */}
               </div>
             )}
           </form>
         </div>
+
+        {!markdownData && (
+          <div className="flex justify-center">
+            <Image
+              src={
+                "https://i.ibb.co/LZdzwDX/Trinity-illustration-of-various-kind-of-plant-based-ingredients-ce935051-ec57-481a-bdc0-d965beb4d63f.jpg"
+              }
+              alt={"Image"}
+              width="1024"
+              height="1024"
+              className="m-4 p-4 rounded-lg object-cover object-center  aspect-[1/1]"
+            />
+          </div>
+        )}
 
         {markdownData && (
           <div className="m-4 p-4 border-2 border-green-500 shadow-lg bg-white rounded-lg overflow-hidden">
