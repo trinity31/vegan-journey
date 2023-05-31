@@ -36,12 +36,12 @@ export default function RecipeBuilder(props) {
       quantity,
       cuisine,
       mealtype,
-      locale: router.locale,
+      // locale: router.locale,
     };
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "text/plain",
       },
       body: JSON.stringify(data),
     };
@@ -51,15 +51,23 @@ export default function RecipeBuilder(props) {
 
     setGenerating(true);
 
-    const response = await fetch("/api/recipe", options);
-    const resultData = await response.json();
-    // console.log(resultData.data);
-    if (resultData.result == "Success") {
-      setMarkdownData(resultData.data.recipe);
-      setImageUrl(resultData.data.image);
-      setGenerating(false);
-    } else {
-      console.log("Failed to generate recipe. Try again.");
+    //const response = await fetch("/api/recipe", options);
+    try {
+      const response = await fetch(
+        "https://veganjourney.azurewebsites.net/api/veganrecipecreator",
+        options
+      );
+      const resultData = await response.json();
+      // console.log(resultData.data);
+      if (resultData.result == "Success") {
+        setMarkdownData(resultData.data.recipe);
+        //setImageUrl(resultData.data.image);
+        setGenerating(false);
+      } else {
+        console.log("Failed to generate recipe. Try again.");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
