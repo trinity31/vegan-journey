@@ -26,48 +26,70 @@ export default function RecipeBuilder(props) {
   const { t } = useTranslation("common");
   const router = useRouter();
 
+  const fetchFromServer = async (url, data) => {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+
+    const response = await fetch(url, options);
+
+    return response;
+  };
+
   const generateRecipe = async (e) => {
     e.preventDefault();
 
     if (generating) return;
 
-    const data = {
-      ingredients,
-      quantity,
-      cuisine,
-      mealtype,
-      // locale: router.locale,
-    };
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/plain",
-      },
-      body: JSON.stringify(data),
-    };
-
     setMarkdownData("");
     setImageUrl("");
-
     setGenerating(true);
 
-    //const response = await fetch("/api/recipe", options);
     try {
-      const response = await fetch(
-        "https://veganjourney.azurewebsites.net/api/veganrecipecreator",
-        options
+      const response = await fetchFromServer(
+        "https://zrtnvin112.execute-api.ap-northeast-2.amazonaws.com/dev/recipe",
+        {
+          ingredients,
+          quantity,
+          cuisine,
+          mealtype,
+          locale: router.locale,
+        }
       );
-      const resultData = await response.json();
-      // console.log(resultData.data);
-      if (resultData.result == "Success") {
-        setMarkdownData(resultData.data.recipe);
-        //setImageUrl(resultData.data.image);
-        setGenerating(false);
+
+      if (response.status === 200) {
+        const response_data = await response.json();
+        // console.log("response:");
+        // console.log(response_data);
+
+        setMarkdownData(response_data.data.recipe);
+        await fetchImage(response_data.data.title);
       } else {
-        console.log("Failed to generate recipe. Try again.");
+        console.log("Failed. status: " + response.status);
       }
+
+      setGenerating(false);
     } catch (error) {
       console.log(error);
+      setGenerating(false);
+    }
+  };
+
+  const fetchImage = async (title) => {
+    const response = await fetchFromServer(
+      "https://zrtnvin112.execute-api.ap-northeast-2.amazonaws.com/dev/image",
+      { title }
+    );
+
+    if (response.status === 200) {
+      const response_image = await response.json();
+      // console.log("image :");
+      // console.log(response_image);
+      setImageUrl(response_image.data.image);
     }
   };
 
