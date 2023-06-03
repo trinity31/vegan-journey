@@ -108,8 +108,8 @@ export default function RecipeBuilder(props) {
         />
         <meta property="og:type" content="blog"></meta>
       </Head>
-      <div className="flex flex-col items-center min-h-screen py-2">
-        <div className="p-6 bg-white border-gray-200">
+      <div className="flex flex-col items-center min-h-screen">
+        <div className="p-6 bg-white dark:bg-black border-gray-200">
           <h1 className="text-3xl font-bold text-green-700">
             {t("ai_recipe_creator")}
           </h1>
@@ -205,7 +205,7 @@ export default function RecipeBuilder(props) {
         )}
 
         {markdownData && (
-          <div className="m-4 p-4 border-2 border-green-500 shadow-lg bg-white rounded-lg overflow-hidden">
+          <div className="m-4 p-4 border-2 border-green-500 shadow-lg bg-white dark:bg-black rounded-lg overflow-hidden">
             {/* <ReactMarkdown children={markdownData} renderers={renderers} /> */}
             <ReactMarkdown className="markdown" components={renderers}>
               {markdownData}
