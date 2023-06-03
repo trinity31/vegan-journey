@@ -17,12 +17,15 @@ export default function RecipeBuilder(props) {
   const [mealtype, setMealtype] = useState("");
   const [generating, setGenerating] = useState(false);
   const quantities = [1, 2, 3, 4, 5];
+  const [special, setSpecial] = useState("");
   const methods = ["Any", "Baked", "Fried", "Boiled", "Raw"];
   // const cuisines = ["Korean", "Thai", "Mexican"];
   const { cuisines } = props;
   const types = ["Breakfast", "Lunch", "Dinner"];
   const [markdownData, setMarkdownData] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [error, setError] = useState(null);
+
   const { t } = useTranslation("common");
   const router = useRouter();
 
@@ -48,6 +51,7 @@ export default function RecipeBuilder(props) {
     setMarkdownData("");
     setImageUrl("");
     setGenerating(true);
+    setError(null);
 
     try {
       const response = await fetchFromServer(
@@ -57,6 +61,7 @@ export default function RecipeBuilder(props) {
           quantity,
           cuisine,
           mealtype,
+          special,
           locale: router.locale,
         }
       );
@@ -75,6 +80,7 @@ export default function RecipeBuilder(props) {
       setGenerating(false);
     } catch (error) {
       console.log(error);
+      setError(error);
       setGenerating(false);
     }
   };
@@ -165,6 +171,13 @@ export default function RecipeBuilder(props) {
                 ))}
               </select>
             </div>
+            <input
+              type="text"
+              value={special}
+              onChange={(e) => setSpecial(e.target.value)}
+              placeholder={t("enter_special_request")}
+              className="p-2 border border-gray-300 my-2"
+            />
 
             {!generating && (
               <button
@@ -189,6 +202,7 @@ export default function RecipeBuilder(props) {
             )}
           </form>
         </div>
+        {error && <p>{error}</p>}
 
         {!markdownData && (
           <div className="flex justify-center">
