@@ -24,7 +24,7 @@ const options = [
 export default function GenerateePage(props) {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [cuisines, setCuisines] = useState([]);
-  const [selectedCuisine, setSelectedCuisine] = useState(null);
+  const [selectedCuisine, setSelectedCuisine] = useState({ name: "" });
   const [text, setText] = useState("");
   const [ingredients, setIngredients] = useState(null);
   const [intro, setIntro] = useState("");
@@ -214,6 +214,11 @@ export default function GenerateePage(props) {
             </div>
           ))}
         </div>
+        <TextField
+          className=" w-full resize-none my-4 border border-gray-400 rounded"
+          value={selectedCuisine.name}
+          onChange={(e) => setSelectedCuisine({ name: e.target.value })}
+        />
         <div className="flex flex-col items-center justify-center px-8">
           <button
             className="px-4 py-2 rounded bg-gray-700 text-white font-bold"
